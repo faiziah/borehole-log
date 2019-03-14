@@ -1,0 +1,37 @@
+<div class="row bh-borehole-body">
+	<div class="bh-borehole">
+		<div class="bh-borehole-log">
+			<!--
+			<bh-log-depth class="bh-log-column" borehole="borehole" type="'depth'" name="'depth (m)'"></bh-log-depth>
+			<bh-log-column class="bh-log-column" borehole="borehole" type="'text'" name="'method'"></bh-log-column>
+			<bh-log-column class="bh-log-column" borehole="borehole" type="'text'" name="'method 2'"></bh-log-column>
+			-->
+			<span class="column-container" ng-repeat="column in borehole.columns | orderBy:'sequence'">
+				<bh-log-depth ng-if="column.type === 'depth'" borehole="borehole" column="column"></bh-log-depth>
+				<bh-log-rl ng-if="column.type === 'rl'" borehole="borehole" column="column"></bh-log-rl>
+				<bh-log-graph class="last-column" ng-if="column.type === 'graph'" borehole="borehole" column="column"></bh-log-graph>
+				<bh-log-column ng-if="['depth', 'graph', 'rl'].indexOf(column.type) === -1" borehole="borehole" column="column"></bh-log-column>
+			</span>
+		</div>
+		<div class="bh-borehole-empty">
+			<!-- THIS DIV MUST BE EMPTY -->
+			<!-- above this rests bh-borehole-footer -->
+		</div>
+	</div>
+	<div class="row bh-focus bh-borehole-footer bh-typography-regular" ng-init="optionsForFooter = getOptionsForFooter()">
+		<div class="col" ng-repeat="column in optionsForFooter">
+			<table>
+				<tr ng-repeat="row in column">
+					<td class="row-heading" ng-class="{'row-heading-margin': !$first}" colspan="2" ng-if="row.type==='title'">
+						{{row.name}}
+					</td>
+					<td ng-if="row.type==='notTitle' && !row.src">{{row.name}}:</td>
+					<td ng-if="row.type==='notTitle' && !!row.src">
+						<img src="{{'/img/column/'+row.src}}">
+					</td>
+					<td ng-if="row.type==='notTitle'">{{row.description}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

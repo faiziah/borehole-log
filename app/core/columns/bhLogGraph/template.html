@@ -1,0 +1,9 @@
+<p class="{{column.class}} column-title" ng-style="bhDataModel.getColumnsComponentDimensions(column.size, true)">
+	&nbsp;{{column.name}}
+	<span class="subtext" ng-if="column.subtext"><br>{{column.subtext}}</span>
+</p>
+{{dimensions = bhDataModel.getColumnsComponentDimensions(column.size, false); ''}}
+<canvas class="column-canvas" width="{{column.size.width*100}}" height="{{column.size.height*100}}" ng-style="dimensions" data-toggle="modal" data-target="{{bhDataModel.createModalId(column.name, borehole)}}"></canvas>
+{{drawOnCanvas()}}
+
+<bh-column-modal borehole="borehole" column="column"></bh-column-modal>

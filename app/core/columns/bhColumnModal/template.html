@@ -1,0 +1,98 @@
+<!-- Modal -->
+<div class="modal fade" id="{{bhDataModel.createModalId(column.name, borehole).split('#').join('')}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{bhDataModel.toUpper(column.name)}}</h5>
+        <span class="text-uppercase">{{column.type}}</span>
+      </div>
+      <div class="modal-body">
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Separators
+                </button>
+              </h5>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-6">
+                    Add a separator at: <input type="number" ng-model="separatorPosn">
+                  </div>
+                  <div class="col-6">
+                    <a href="" class="text-success" ng-click="addSeparator(separatorPosn, column.sequence)">+ Local</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="" class="text-danger" ng-click="addSeparator(separatorPosn, 'all')">+ Global</a>
+                  </div>
+                </div>
+                <div ng-if="column.type==='rl'">
+                  <br>
+                  RL at surface is <input ng-if="column.type === 'rl'" ng-model="column.rl" ng-model-options="{debounce: 750}" step="1">
+                </div>
+                <br>
+                <h6>Separators:</h6>
+                <div class="row" ng-repeat="separator in column.separators">
+                  <div class="col-12">
+                    <a href="" class="text-danger text-right" ng-click="deleteSeparator(separator)">&#10005; delete</a>
+                    <input ng-model="separator.position" ng-model-options="{debounce: 750}">
+                    <span ng-if="column.type !== 'rl'">&rarr;</span>
+                    <!-- 'text' type columns -->
+                    <textarea ng-if="column.type === 'text' && !column.separatorOptions" rows="1" ng-model="separator.content" ng-model-options="{debounce: 750}"></textarea>
+                    <select ng-if="column.type === 'text' && !!column.separatorOptions" class="custom-select" ng-model="separator.content">
+                      <option ng-repeat="option in column.separatorOptions" ng-value="option.name">{{option.name}}</option>
+                    </select>
+                    
+                    <!-- 'image' type columns -->
+                    <select ng-if="column.type === 'image'" class="custom-select" ng-model="separator.content">
+                      <option ng-repeat="option in column.separatorOptions" ng-value="option.src">{{option.name}}</option>
+                    </select>
+
+                    <!-- separator line style -->
+                    <select class="custom-select small" ng-model="separator.lineType">
+                      <option ng-value="'solid'">Solid</option>
+                      <option ng-value="'dashed'">Dash</option>
+                      <option ng-value="'invisible'">None</option>
+                      <!-- use unicode -->
+                      <option ng-value="'┓'" ng-if="column.type === 'text'">┓ text</option>
+                      <option ng-value="'- '" ng-if="column.type === 'text'">- text</option>
+                      <option ng-value="'┛'" ng-if="column.type === 'text'">┛ text</option>
+                    </select>
+                    <!-- 'graph' type columns -->
+                    <input type="color" ng-if="column.type === 'graph'" ng-model="separator.color">
+                    <div class="col" ng-if="column.type === 'graph'">
+                      <table class="table table-striped">
+                        <tr>
+                          <th>Depth (m)</th>
+                          <th>Value</th>
+                          <th></th>
+                        </tr>
+                        <tr ng-repeat="coordinate in separator.coordinates">
+                          <td>
+                            <input type="number" ng-model="coordinate.depth" ng-model-options="{debounce: 750}" ng-change="calculateXValue()">
+                          </td>
+                          <td>
+                            <input type="number" ng-model="coordinate.value" ng-disabled="column.calculateXValue">
+                          </td>
+                          <td>
+                            <a href="" ng-click="deleteSeparatorCoordinate(separator, coordinate)">&#10005; delete</a>
+                          </td>
+                        </tr>
+                      </table>
+                      <a href="" ng-click="separator.coordinates = separator.coordinates.length > 0 ? separator.coordinates : []; separator.coordinates.push({depth: null, value: null})">+ new</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

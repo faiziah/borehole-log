@@ -1,0 +1,39 @@
+/* 
+ * borehole log header styles
+ */
+.bh-logo-img {
+  height: 37px;
+  width: auto;
+}
+.bh-title-bar {
+  border-top: 1px solid black;
+  border-bottom: 2px solid black;
+  font-size: 16px;
+  font-weight: bold;
+}
+.bh-title-bar .col-6 {
+  padding: 0px;
+}
+.bh-project-info {
+  padding: 5px;
+}
+.bh-project-info td {
+  min-width: 100px;
+}
+.bh-borehole-info {
+  padding: 5px;
+  border: 2px solid black;
+  border-bottom: none;
+  overflow: hidden;
+  padding-bottom: 0px;
+}
+.bh-borehole-info .bottom-border{
+  border-bottom: 1px solid black;
+}
+.bh-borehole-info .col {
+  padding: 0px;
+}
+.bh-borehole-info td {
+  min-width: 100px;
+  width: auto;
+}

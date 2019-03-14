@@ -1,0 +1,52 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+/* print hide */
+@media print {
+	page {
+		border: 2px solid red;
+		margin-top: 0mm;
+	}
+	.print-hide {
+		display: none;
+	}
+	@page {
+      size: A4; /* DIN A4 standard, Europe */
+      margin:0;
+      border: 2px solid blue;
+      margin-top: 0mm;
+    }
+    html, body {
+        width: 210mm;
+        /* height: 297mm; */
+        height: 282mm;
+        overflow:visible;
+        margin-top: 0mm;
+    }
+    body {
+        padding: 0mm;
+        margin-top: 0mm;
+    }
+}

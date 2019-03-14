@@ -1,0 +1,28 @@
+bh-column-modal input {
+	border: none;
+	background: none;
+	border-bottom: 1px solid lightgrey;
+	width: 1.2cm;
+	text-align: center;
+}
+bh-column-modal textarea {
+	border: none;
+	background: none;
+	border-bottom: 1px solid lightgrey;
+	text-align: center;
+	width: 50%;
+	vertical-align: bottom;
+}
+bh-column-modal .custom-select {
+	width: 50%;
+	border: none;
+}
+bh-column-modal .small{
+	width: 15%;
+	border: none;
+}
+bh-column-modal a {
+	font-weight: normal;
+	font-size: 14px;
+	text-transform: uppercase;
+}

@@ -1,0 +1,60 @@
+/* 
+ * page styles
+ */
+.page-layout {
+  background: rgb(204,204,204);
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+page[size="A4"] {  
+  width: 21cm;
+  height: 29.7cm;
+  /*page margin*/
+  padding: 1.5cm;
+}
+page[size="A4"][layout="landscape"] {
+  width: 29.7cm;
+  height: 21cm;
+  /*page margin*/
+  padding: 1.5cm;
+}
+page[size="A3"] {
+  width: 29.7cm;
+  height: 42cm;
+}
+page[size="A3"][layout="landscape"] {
+  width: 42cm;
+  height: 29.7cm;  
+}
+page[size="A5"] {
+  width: 14.8cm;
+  height: 21cm;
+}
+page[size="A5"][layout="landscape"] {
+  width: 21cm;
+  height: 14.8cm;  
+}
+@media print {
+  body, page {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+/* 
+ * borehole log common styles
+ */
+.bh-focus:hover {
+  border: 2px solid red;
+}
+.bh-typography-regular {
+  font-size: 12px;
+  line-height: calc(12px * 1.3);
+}

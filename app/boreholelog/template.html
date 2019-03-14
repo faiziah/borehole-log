@@ -1,0 +1,21 @@
+<div class="print-hide">
+	<br><br><br>
+
+	<ul class="nav justify-content-center">
+	  <li class="nav-item">
+	    <button ng-click="navigateTo(0)" class="nav-link btn btn-light" ng-class="{'active': bhDataModel.activeTab === 0}">Project Data <span class="sr-only">(current)</span></button>
+	  </li>
+	  <li class="nav-item">
+	    <button ng-click="navigateTo(1)" class="nav-link btn btn-light" ng-class="{'active': bhDataModel.activeTab === 1}">Log Design</button>
+	  </li>
+	  <li class="nav-item">
+	    <button ng-click="navigateTo(2)" class="nav-link btn btn-light" ng-class="{'active': bhDataModel.activeTab === 2}">Settings</button>
+	  </li>
+	</ul>
+
+	<br><br><br>
+</div>
+
+<bh-project-form ng-if="bhDataModel.activeTab === 0"></bh-project-form>
+<bh-borehole-design ng-if="bhDataModel.activeTab === 1"></bh-borehole-design>
+<bh-settings ng-if="bhDataModel.activeTab === 2"></bh-settings>

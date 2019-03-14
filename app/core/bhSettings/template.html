@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+    	<h1 class="text-center">Settings</h1>
+    	<br><br><br>
+    </div>
+    <div class="col-6">
+		<label>Export Data:</label>
+		<textarea type="text" class="form-control">{{exportData}}</textarea>
+    	
+    </div>
+    <div class="col-6">
+		<label>Load Data:</label>
+		<textarea ng-model="importData" type="text" class="form-control"></textarea>
+		<br>
+		<button ng-click="loadData(importData)" type="button" class="btn btn-primary">Load</button>
+    </div>
+    <div class="col-12">
+    	<br><br><br>
+    	<h1 class="text-center">Notes</h1>
+    	<br>
+    	<ul>
+    		<li>treat different BH sheets as different logs - use duplication to carry values over. This way Log Design tab is able to show all logs in one web page.</li>
+            <li>depth MUST be 2 integers</li>
+            <li>Separator options showing in log footer even if its not used</li>
+            <li>BHLog column - long text at the bottom of the depth causes overflow problems - text only flows down and not up</li>
+            <li>BHLog column text is split by spaces (' ') and my dashes ('-') - use dashes to split big words</li>
+            <li>this log is not concerned with layer separations - instead uses global separators which are editable and not fixed to layer definitions</li>
+            <li>to put text at a certain depth - create invisible-lined separator and enter text</li>
+            <li>refresh footer by switching and reswitching tabs</li>
+    	</ul>
+        to-do
+        <ul>
+            <li>center description column</li>
+            <li>moisture content - no line break - increase height</li>
+            <li><strike>moisture, samples and insitu tests, support, consistency, rel. density, UCS symbols column abreviation and terms can be found in the pdf document sent to your gmail.</strike></li>
+            <li><strike>Abbreviation terms for UCS symbols are not to be presented in the footer.</strike></li>
+            <li><strike>cons. and rel. den. all in footer</strike></li>
+            <li>non-responsive A4</li>
+            <li>multipage borehole log</li>
+        </ul>
+    </div>
+  </div>
+</div>

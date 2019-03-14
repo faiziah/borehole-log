@@ -1,0 +1,47 @@
+<div class="bh-borehole-header">
+	<div class="row bh-focus bh-borehole-info bh-typography-regular">
+		<div class="col">
+			<table>
+				<tr>
+					<td>Client:</td>
+					<td>{{bhDataModel.project.client}}</td>
+				</tr>
+				<tr>
+					<td>Project No.:</td>
+					<td>{{bhDataModel.project.project}}</td>
+				</tr>
+				<tr>
+					<td>Site:</td>
+					<td>{{bhDataModel.project.location}}</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col">
+			<div class="row text-right">
+				<div class="col-8">
+					{{bhDataModel.epoch.address}}<br>
+					T: {{bhDataModel.epoch.telephone}}<br>
+					E: {{bhDataModel.epoch.email}}
+				</div>
+				<div class="col-4">
+					<img src="img/logo.png" class="bh-logo-img">
+				</div>
+				<div class="col-12 text-right">
+					BOREHOLE ID: {{getBoreholeId(borehole.info)}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row bh-focus bh-borehole-info bh-typography-regular" ng-init="bhDataArray = getBHDataArray(borehole.info, 3)">
+		<div class="col" ng-repeat="bhData in bhDataArray">
+			<div class="row bottom-border" ng-repeat="data in bhData">
+				<div class="col-6">
+					{{data.name}}
+				</div>
+				<div class="col-6">
+					{{data.value}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

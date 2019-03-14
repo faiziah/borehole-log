@@ -1,0 +1,25 @@
+<div class="container print-hide">
+  <div class="row">
+    <div class="col-12">
+    	<h1 class="text-center">Log Design</h1>
+		<label for="singleSelect"> Page size: </label>
+		<select name="singleSelect" ng-model="bhDataModel.pageOptions.pageSize">
+			<option value="A3"disabled >A3</option>
+			<option value="A4">A4</option>
+			<option value="A5" disabled>A5</option>
+		</select>
+		<label for="singleSelect"> Page Orientation: </label>
+		<select name="singleSelect" ng-model="bhDataModel.pageOptions.pageOrientation">
+			<option value="">Portrait</option>
+			<option value="landscape" disabled>Landscape</option>
+		</select>
+    	<br><br><br>
+    </div>
+  </div>
+</div>
+<div class="page-layout">
+	<page ng-repeat="borehole in bhDataModel.project.boreholes track by $index" size="{{bhDataModel.pageOptions.pageSize}}" layout="{{bhDataModel.pageOptions.pageOrientation}}" class="container">
+		<bh-borehole-header borehole="borehole"></bh-borehole-header>
+		<bh-borehole-body borehole="borehole"></bh-borehole-body>
+	</page>
+</div>

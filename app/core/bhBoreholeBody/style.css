@@ -1,0 +1,80 @@
+/* 
+ * borehole log body styles
+ */
+.bh-borehole-body {
+  border-top: none;
+  position: relative;
+  /* this height determins footer & log height.*/
+  height: 75%;
+}
+.bh-borehole {
+  width: 100%;
+}
+.bh-borehole-log {
+  width: 100%;
+  height: 85%;
+}
+.bh-borehole-empty {
+  width: 100%;
+}
+.bh-borehole-footer {
+  border: 2px solid black;
+  position: absolute;
+  bottom: -2cm;
+  left: 15px;
+  padding: 5px;
+  height: 5cm;
+  width: 100%;
+}
+.bh-borehole-footer img {
+  width: 14px;
+  height: auto;
+}
+.bh-borehole-log bh-log-depth,
+.bh-borehole-log bh-log-rl,
+.bh-borehole-log bh-log-graph,
+.bh-borehole-log bh-log-column {
+  float: left;
+}
+.bh-borehole-log {
+  border-right: 0.6px solid black;
+  border-left: 2px solid black;
+}
+.last-column {
+  border-right: none;
+}
+.bh-borehole-footer div {
+  padding: 0px;
+}
+.bh-borehole-footer table img {
+  border: 0.5px solid lightgrey;
+}
+.bh-borehole-footer table .row-heading {
+  font-weight: bold;
+}
+.bh-borehole-footer table .row-heading-margin {
+  padding-top: 15px;
+}
+/* individual column styling */
+.text-vertical-upwards {
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
+  border-left: 1px solid black;
+}
+.text-upright {
+  border-right: 1px solid black;
+}
+.column-canvas {
+  border: 1.5px solid black;
+  border-left: none;
+}
+.column-title {
+  margin: 0px;
+}
+.column-title .subtext {
+  font-size: 12px;
+}
+/* centering the column with .vertical-center */
+.vertical-center {
+  padding-top: 1.2cm;
+}
